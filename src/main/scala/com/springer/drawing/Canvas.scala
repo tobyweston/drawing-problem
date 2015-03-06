@@ -10,9 +10,9 @@ object ArrayCanvas {
 
 class ArrayCanvas private(columns: Int, rows: Int) extends Canvas {
 
-  private val canvas: Array[Array[Char]] = Array.fill(rows, columns)(' ')
+  private val canvas = Array.fill(rows, columns)(' ')
 
-  Border('-', '|').applyTo(canvas)
+  Border().applyTo(canvas)
 
   def drawCharacter(coordinate: Coordinate, char: Char) = {
     if (valid(coordinate))

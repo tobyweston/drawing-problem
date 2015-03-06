@@ -1,7 +1,7 @@
 package com.springer.drawing
 
 object Border {
-  def apply(horizontal: Char, vertical: Char) = new Border(horizontal, vertical)
+  def apply(horizontal: Char = '-', vertical: Char = '|') = new Border(horizontal, vertical)
 }
 
 class Border(horizontal: Char, vertical: Char) {
