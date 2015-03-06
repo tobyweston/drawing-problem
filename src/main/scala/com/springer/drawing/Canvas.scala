@@ -29,7 +29,18 @@ class Canvas private(columns: Int, rows: Int) {
     })
   }
 
-  def drawCharacter(coordinate: Coordinate, char: Char) = canvas(coordinate.y)(coordinate.x) = char
+  def drawCharacter(coordinate: Coordinate, char: Char) = {
+    if (valid(coordinate))
+      canvas(coordinate.y)(coordinate.x) = char
+  }
+
+  private def valid(coordinate: Coordinate): Boolean = {
+    def validX = coordinate.x > 0 && coordinate.x < columns -1
+    def validY = coordinate.y > 0 && coordinate.y < rows -1
+
+    validX && validY
+  }
+
 
   override def toString: String = {
     val newline = sys.props("line.separator")

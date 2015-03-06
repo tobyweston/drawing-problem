@@ -6,4 +6,4 @@ The coordinate system starts at 1 for `x` and `y` axis. Ordinating the top left 
 
 ## Use of Exceptions
 
-I'm in two minds about using exceptions. I prevent an invalid coordinate being created by throwing an exception but am thinking I'll ignore out of range coordinates when applied to the canvas.
+I'm in two minds about using exceptions. I started by preventing an invalid coordinate being created by throwing an exception but switched to just ignoring out of range coordinates when applied to the canvas. I decided that coordinates are coordinates, so even (-34, -23) are "valid", it's only the context of applying them to the canvas that gives us enough to reason if they are really valid. 
