@@ -7,7 +7,7 @@ object Line {
     if (Coordinates(range(start, end): _*).onSingleAxis) new Line(start, end) else new NullShape
   }
 
-  def range(start: Coordinate, end: Coordinate): Seq[Coordinate] = {
+  private def range(start: Coordinate, end: Coordinate): Seq[Coordinate] = {
     for {
       x <- start.x to end.x
       y <- start.y to end.y
