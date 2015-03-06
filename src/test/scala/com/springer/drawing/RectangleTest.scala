@@ -18,4 +18,10 @@ class RectangleTest extends Specification {
 
     Rectangle(Coordinate(1, 1), Coordinate(3, 3)).applyTo(canvas)
   }
+
+  "Drawing an invalid rectangle region" in new MockContext {
+    val canvas = mock[Canvas]
+    (canvas.drawCharacter _).expects(*, *).never()
+    Rectangle(Coordinate(3, 3), Coordinate(1, 1)).applyTo(canvas)
+  }
 }
