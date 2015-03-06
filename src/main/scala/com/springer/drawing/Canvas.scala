@@ -17,7 +17,7 @@ class Canvas private(width: Int, height: Int) {
     addHorizontalBorders()
     addVerticalBorders()
   }
-  
+
   def addHorizontalBorders() {
     (0 until columns).foreach(x => {
       canvas(0)(x) = '-'
@@ -32,7 +32,7 @@ class Canvas private(width: Int, height: Int) {
     })
   }
 
-  def drawCharacter(coordinate: Coordinate, char: Char) = ???
+  def drawCharacter(coordinate: Coordinate, char: Char) = canvas(coordinate.y)(coordinate.x) = char
 
   override def toString: String = {
     val newline = sys.props("line.separator")
