@@ -33,11 +33,13 @@ class LineTest extends Specification {
 
   "Lines that span multiple axis have no affect on the canvas" in new MockContext {
     val canvas = mock[Canvas]
+    (canvas.drawCharacter _).expects(*, *).never()
     Line(Coordinate(1, 1), Coordinate(2, 2)).applyTo(canvas)
   }
 
   "Drawing lines backwards has no affect" in new MockContext {
     val canvas = mock[Canvas]
+    (canvas.drawCharacter _).expects(*, *).never()
     Line(Coordinate(1, 4), Coordinate(1, 1)).applyTo(canvas)
   }
 }
