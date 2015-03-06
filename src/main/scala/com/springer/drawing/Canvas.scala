@@ -10,7 +10,7 @@ object ArrayCanvas {
 
 class ArrayCanvas private(columns: Int, rows: Int) extends Canvas {
 
-  private val canvas: Array[Array[Char]] = Array.ofDim(rows, columns)
+  private val canvas: Array[Array[Char]] = Array.fill(rows, columns)(' ')
 
   Border('-', '|').applyTo(canvas)
 
