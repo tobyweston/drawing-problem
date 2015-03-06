@@ -4,6 +4,10 @@ trait Shape {
   def applyTo(canvas: Canvas)
 }
 
+object Line {
+  def apply(start: Coordinate, end: Coordinate) = new Line(start, end)
+}
+
 class Line(start: Coordinate, end: Coordinate) extends Shape {
   def applyTo(canvas: Canvas): Unit = {
     val line = for {
@@ -15,11 +19,3 @@ class Line(start: Coordinate, end: Coordinate) extends Shape {
     line.foreach(canvas.drawCharacter(_, 'x'))
   }
 }
-
-object Test extends App {
-  val canvas = Canvas(10, 4)
-  new Line(Coordinate(1, 2), Coordinate(6, 2)).applyTo(canvas)
-  new Line(Coordinate(6, 3), Coordinate(6, 4)).applyTo(canvas)
-  println(canvas.toString)
-}
-

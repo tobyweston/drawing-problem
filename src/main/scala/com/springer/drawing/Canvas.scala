@@ -1,10 +1,14 @@
 package com.springer.drawing
 
-object Canvas {
-  def apply(width: Int, height: Int) = new Canvas(width + 2, height + 2)
+trait Canvas {
+  def drawCharacter(coordinate: Coordinate, char: Char)
 }
 
-class Canvas private(columns: Int, rows: Int) {
+object ArrayCanvas {
+  def apply(width: Int, height: Int) = new ArrayCanvas(width + 2, height + 2)
+}
+
+class ArrayCanvas private(columns: Int, rows: Int) extends Canvas {
 
   private val canvas: Array[Array[Char]] = Array.ofDim(rows, columns)
 
