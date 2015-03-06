@@ -22,12 +22,8 @@ class Canvas private(columns: Int, rows: Int) {
     validX && validY
   }
 
-
   override def toString: String = {
     val newline = sys.props("line.separator")
     canvas.map(row => row.mkString("")).mkString(newline)
   }
 }
-
-
-
