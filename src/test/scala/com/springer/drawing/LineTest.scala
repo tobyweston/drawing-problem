@@ -5,7 +5,7 @@ import org.scalamock.specs2.MockContext
 
 class LineTest extends Specification {
 
-  "Veritical line is applied to canvas" in new MockContext {
+  "Vertical line is applied to canvas" in new MockContext {
     val canvas = mock[Canvas]
     (canvas.drawCharacter _).expects(Coordinate(1, 1), 'x')
     (canvas.drawCharacter _).expects(Coordinate(1, 2), 'x')
