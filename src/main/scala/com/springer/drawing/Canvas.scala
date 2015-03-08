@@ -1,8 +1,11 @@
 package com.springer.drawing
 
-trait Canvas {
+trait Canvas  {
   def drawCharacter(coordinate: Coordinate, char: Char)
+  def getTiles: Seq[Tile]
 }
+
+case class Tile(coordinate: Coordinate, value: Char)
 
 object ArrayCanvas {
   def apply(width: Int, height: Int) = new ArrayCanvas(width + 2, height + 2)
@@ -24,6 +27,15 @@ class ArrayCanvas private(columns: Int, rows: Int) extends Canvas {
     def validY = coordinate.y > 0 && coordinate.y < rows -1
 
     validX && validY
+  }
+
+  def getTiles: Seq[Tile] = {
+    for {
+      x <- 0 until columns
+      y <- 0 until rows
+    } yield {
+      Tile(Coordinate(x, y), canvas(y)(x))
+    }
   }
 
   override def toString: String = {
