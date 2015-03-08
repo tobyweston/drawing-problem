@@ -1,19 +1,10 @@
 package com.springer.drawing
 
-import com.springer.drawing.Line.range
+import com.springer.drawing.Coordinate._
 
 object Line {
   def apply(start: Coordinate, end: Coordinate) = {
     if (Coordinates(range(start, end): _*).onSingleAxis) new Line(start, end) else new NullShape
-  }
-
-  private def range(start: Coordinate, end: Coordinate): Seq[Coordinate] = {
-    for {
-      x <- start.x to end.x
-      y <- start.y to end.y
-    } yield {
-      Coordinate(x, y)
-    }
   }
 }
 
