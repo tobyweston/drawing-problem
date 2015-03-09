@@ -50,12 +50,12 @@ class ArrayCanvasTest extends Specification {
 
   "get the coordinates and values for a canvas" >> {
     val canvas = ArrayCanvas(3, 2)
-    val expected = Map(
+    val expected = new Tiles(Seq(
       Coordinate(0, 0) -> '-', Coordinate(1, 0) -> '-', Coordinate(2, 0) -> '-', Coordinate(3, 0) -> '-', Coordinate(4, 0) -> '-',
       Coordinate(0, 1) -> '|', Coordinate(1, 1) -> ' ', Coordinate(2, 1) -> ' ', Coordinate(3, 1) -> ' ', Coordinate(4, 1) -> '|',
       Coordinate(0, 2) -> '|', Coordinate(1, 2) -> ' ', Coordinate(2, 2) -> ' ', Coordinate(3, 2) -> ' ', Coordinate(4, 2) -> '|',
       Coordinate(0, 3) -> '-', Coordinate(1, 3) -> '-', Coordinate(2, 3) -> '-', Coordinate(3, 3) -> '-', Coordinate(4, 3) -> '-'
-    )
+    ):_*)
     canvas.getTiles must_== expected
   }
 

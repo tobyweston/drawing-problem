@@ -1,6 +1,6 @@
 package com.springer.drawing
 
-class Tiles private(values: Map[Coordinate, Char]) {
+case class Tiles private(values: Map[Coordinate, Char]) {
 
   private val tiles = values
 
