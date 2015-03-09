@@ -19,6 +19,9 @@ case class Coordinate(x: Int, y: Int) {
   def rightOf = (x + 1, y)
   def below = (x, y + 1)
   def leftOf = (x - 1, y)
+  def <(coordinate: Coordinate) = x < coordinate.x || y < coordinate.y
+  def >(coordinate: Coordinate) = x > coordinate.x || y > coordinate.y
+  def outSide(bounds: RectangleBounds) = this < bounds.upperLeft || this > bounds.lowerRight
 
   override def toString: String = s"($x, $y)"
 }

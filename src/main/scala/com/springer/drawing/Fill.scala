@@ -27,32 +27,8 @@ class Fill(groundZero: Coordinate, colour: Char) extends Drawable {
     coordinates.foreach(coordinate => canvas.drawCharacter(coordinate, colour))
   }
 
-//  def applyTo2(canvas: Canvas) = {
-//    val array = canvas.asInstanceOf[ArrayCanvas].canvas // make coordinates
-//
-//    val width = array.head.length
-//    val height = array.length
-//
-//    def paint(coordinate: Coordinate) {
-//      if (!paintable(coordinate, array(coordinate.y)(coordinate.x), width, height))
-//        return
-//
-//      array(coordinate.y)(coordinate.x) = colour
-//      println(canvas)
-//
-//      paint(coordinate.above)
-//      paint(coordinate.rightOf)
-//      paint(coordinate.below)
-//      paint(coordinate.leftOf)
-//    }
-//
-//    paint(groundZero)
-//  }
-
   def paintable(coordinate: Coordinate, tiles: Tiles, width: Int, height: Int): Boolean = {
-    if (coordinate.x < 0 || coordinate.y < 0)
-      return false
-    if (coordinate.x >= width || coordinate.y >= height)
+    if (coordinate.outSide(RectangleBounds(Coordinate(0,0), Coordinate(width, height))))
       return false
     if (!tiles.contains(coordinate))
       return false
@@ -60,6 +36,4 @@ class Fill(groundZero: Coordinate, colour: Char) extends Drawable {
       return false
     true
   }
-
 }
-
