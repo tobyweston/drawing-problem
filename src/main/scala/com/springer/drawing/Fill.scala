@@ -15,12 +15,9 @@ class Fill(groundZero: Coordinate, colour: Char, ignored: Seq[Char]) extends Dra
   }
 
   private def fill(coordinate: Coordinate, tiles: Tiles)(implicit found: mutable.MutableList[Coordinate], bounds: RectangleBounds) {
-    val remaining = tiles - found
+    implicit val remaining = tiles - found
 
-    def alreadyMatched = !remaining.contains(coordinate)
-    def alreadyFilled = ignored.contains(remaining(coordinate))
-
-    if (coordinate.outside(bounds) || alreadyMatched || alreadyFilled)
+    if (coordinate.outside(bounds) || alreadyMatched(coordinate) || alreadyFilled(coordinate))
       return
 
     found += coordinate
@@ -30,5 +27,9 @@ class Fill(groundZero: Coordinate, colour: Char, ignored: Seq[Char]) extends Dra
     fill(coordinate.below, remaining)
     fill(coordinate.leftOf, remaining)
   }
+
+  private def alreadyMatched(coordinate: Coordinate)(implicit remaining: Tiles) = !remaining.contains(coordinate)
+
+  private def alreadyFilled(coordinate: Coordinate)(implicit remaining: Tiles) = ignored.contains(remaining(coordinate))
 
 }
