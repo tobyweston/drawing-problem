@@ -14,13 +14,13 @@ class Fill(groundZero: Coordinate, colour: Char, ignored: Seq[Char]) extends Dra
     coordinates.foreach(coordinate => canvas.drawCharacter(coordinate, colour))
   }
 
-  private def fill(coordinate: Coordinate, tiles: Tiles)(implicit region: mutable.MutableList[Coordinate], bounds: RectangleBounds) {
+  private def fill(coordinate: Coordinate, tiles: Tiles)(implicit coordinates: mutable.MutableList[Coordinate], bounds: RectangleBounds) {
     if (!paintable(coordinate, tiles, bounds))
       return
 
-    region += coordinate
+    coordinates += coordinate
 
-    val remaining = tiles.filter(!region.contains(_))
+    val remaining = tiles.filter(!coordinates.contains(_))
     fill(coordinate.above, remaining)
     fill(coordinate.rightOf, remaining)
     fill(coordinate.below, remaining)
