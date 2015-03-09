@@ -10,6 +10,10 @@ case class Tiles private(values: Map[Coordinate, Char]) {
 
   def filter(function: Coordinate => Boolean): Tiles = new Tiles(tiles.filterKeys(function))
 
+  def -(coordinate: Coordinate) = Tiles(tiles - coordinate)
+
+  def -(coordinates: Seq[Coordinate]) = Tiles(tiles.filterNot(t => coordinates.contains(t._1)))
+
   def contains(coordinate: Coordinate) = tiles.keySet.contains(coordinate)
 
   def apply(coordinate: Coordinate) = tiles.apply(coordinate)

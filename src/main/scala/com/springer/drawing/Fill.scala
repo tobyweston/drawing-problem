@@ -15,12 +15,12 @@ class Fill(groundZero: Coordinate, colour: Char, ignored: Seq[Char]) extends Dra
   }
 
   private def fill(coordinate: Coordinate, tiles: Tiles)(implicit coordinates: mutable.MutableList[Coordinate], bounds: RectangleBounds) {
-    if (!paintable(coordinate, tiles, bounds))
+    if (!paintable(coordinate, tiles - coordinates, bounds))
       return
 
     coordinates += coordinate
 
-    val remaining = tiles.filter(!coordinates.contains(_))
+    val remaining = tiles - coordinates
     fill(coordinate.above, remaining)
     fill(coordinate.rightOf, remaining)
     fill(coordinate.below, remaining)
