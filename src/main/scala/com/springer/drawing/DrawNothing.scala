@@ -1,5 +1,5 @@
 package com.springer.drawing
 
-class NullShape extends Shape {
+class DrawNothing extends Drawable {
   override def applyTo(canvas: Canvas) = ()
 }

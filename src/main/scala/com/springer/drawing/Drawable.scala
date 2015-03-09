@@ -1,5 +1,5 @@
 package com.springer.drawing
 
-trait Shape {
+trait Drawable {
   def applyTo(canvas: Canvas)
 }

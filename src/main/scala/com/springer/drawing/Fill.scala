@@ -6,7 +6,7 @@ object Fill {
   def apply(groundZero: Coordinate, colour: Char) = new Fill(groundZero, colour)
 }
 
-class Fill(groundZero: Coordinate, colour: Char) extends Shape {
+class Fill(groundZero: Coordinate, colour: Char) extends Drawable {
 
   def applyTo(canvas: Canvas) = {
     def fillRegion(coordinate: Coordinate, tiles: Tiles)(implicit region: mutable.MutableList[Coordinate]) {

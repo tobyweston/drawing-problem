@@ -4,11 +4,11 @@ import com.springer.drawing.Coordinate._
 
 object Line {
   def apply(start: Coordinate, end: Coordinate) = {
-    if (Coordinates(range(start, end): _*).onSingleAxis) new Line(start, end) else new NullShape
+    if (Coordinates(range(start, end): _*).onSingleAxis) new Line(start, end) else new DrawNothing
   }
 }
 
-class Line private(start: Coordinate, end: Coordinate) extends Shape {
+class Line private(start: Coordinate, end: Coordinate) extends Drawable {
   def applyTo(canvas: Canvas): Unit = {
     range(start, end).foreach(canvas.drawCharacter(_, 'x'))
   }
