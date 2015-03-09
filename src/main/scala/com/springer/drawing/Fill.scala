@@ -28,7 +28,7 @@ class Fill(groundZero: Coordinate, colour: Char, ignored: Seq[Char]) extends Dra
   }
 
   private def paintable(coordinate: Coordinate, tiles: Tiles, bounds: RectangleBounds): Boolean = {
-    if (coordinate.outSide(bounds))
+    if (coordinate.outside(bounds))
       return false
     if (!tiles.contains(coordinate))
       return false

@@ -43,18 +43,18 @@ class CoordinateTest extends Specification {
 
   "coordinate is outside a bounded box" >> {
     "for x and y less than the rectangle boundary" >> {
-      Coordinate(-1, 0).outSide(RectangleBounds((0, 0), (2, 2))) must_== true
-      Coordinate(0, -1).outSide(RectangleBounds((0, 0), (2, 2))) must_== true
+      Coordinate(-1, 0).outside(RectangleBounds((0, 0), (2, 2))) must_== true
+      Coordinate(0, -1).outside(RectangleBounds((0, 0), (2, 2))) must_== true
     }
     "for x and y greater than the rectangle boundary" >> {
-      Coordinate(3, 1).outSide(RectangleBounds((0, 0), (2, 2))) must_== true
-      Coordinate(1, 3).outSide(RectangleBounds((0, 0), (2, 2))) must_== true
+      Coordinate(3, 1).outside(RectangleBounds((0, 0), (2, 2))) must_== true
+      Coordinate(1, 3).outside(RectangleBounds((0, 0), (2, 2))) must_== true
     }
     "where x and y are exactly on the boundary" >> {
-      Coordinate(0, 1).outSide(RectangleBounds((0, 0), (2, 2))) must_== false
-      Coordinate(1, 0).outSide(RectangleBounds((0, 0), (2, 2))) must_== false
-      Coordinate(0, 2).outSide(RectangleBounds((0, 0), (2, 2))) must_== false
-      Coordinate(2, 0).outSide(RectangleBounds((0, 0), (2, 2))) must_== false
+      Coordinate(0, 1).outside(RectangleBounds((0, 0), (2, 2))) must_== false
+      Coordinate(1, 0).outside(RectangleBounds((0, 0), (2, 2))) must_== false
+      Coordinate(0, 2).outside(RectangleBounds((0, 0), (2, 2))) must_== false
+      Coordinate(2, 0).outside(RectangleBounds((0, 0), (2, 2))) must_== false
     }
   }
 
