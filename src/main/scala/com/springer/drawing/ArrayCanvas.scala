@@ -22,7 +22,7 @@ class ArrayCanvas private(columns: Int, rows: Int) extends Canvas {
     validX && validY
   }
 
-  def getTiles: Tiles = {
+  def tiles: Tiles = {
     val tiles = for {
       x <- 0 until columns
       y <- 0 until rows
@@ -32,9 +32,7 @@ class ArrayCanvas private(columns: Int, rows: Int) extends Canvas {
     new Tiles(tiles:_*)
   }
 
-  override def width: Int = columns
-
-  override def height: Int = rows
+  override def bounds = RectangleBounds(Coordinate(1, 1), Coordinate(columns, rows))
 
   override def toString: String = {
     val newline = sys.props("line.separator")

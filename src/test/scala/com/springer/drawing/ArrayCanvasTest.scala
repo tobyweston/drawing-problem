@@ -56,7 +56,7 @@ class ArrayCanvasTest extends Specification {
       Coordinate(0, 2) -> '|', Coordinate(1, 2) -> ' ', Coordinate(2, 2) -> ' ', Coordinate(3, 2) -> ' ', Coordinate(4, 2) -> '|',
       Coordinate(0, 3) -> '-', Coordinate(1, 3) -> '-', Coordinate(2, 3) -> '-', Coordinate(3, 3) -> '-', Coordinate(4, 3) -> '-'
     ):_*)
-    canvas.getTiles must_== expected
+    canvas.tiles must_== expected
   }
 
 }
