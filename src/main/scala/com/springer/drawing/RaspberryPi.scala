@@ -21,7 +21,7 @@ object RaspberryPi {
 class RaspberryPi extends Display {
   def apply(canvas: Canvas) {
     val unicorn = new Ws2811Unicorn()
-    unicorn.setBrightness(0.5)
+    unicorn.setBrightness(0.1)
     canvas.tiles.foreach(tile => {
       unicorn.setPixelColor(tile._1.x, tile._1.y, colourFrom(tile._2))
     })
