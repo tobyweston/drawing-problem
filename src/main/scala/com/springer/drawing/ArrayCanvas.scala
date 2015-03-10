@@ -2,6 +2,9 @@ package com.springer.drawing
 
 object ArrayCanvas {
   def apply(width: Int, height: Int) = new ArrayCanvas(width + 2, height + 2)
+  def unapply(options: List[String]): Option[(Int, Int)] = {
+    None
+  }
 }
 
 class ArrayCanvas private(columns: Int, rows: Int) extends Canvas {

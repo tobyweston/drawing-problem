@@ -73,6 +73,19 @@ class FillTest extends Specification {
 
       Fill((1, 1), colour, Seq(ignore)).applyTo(canvas)
     }
+  }
 
+  "extractor" >> {
+    "wont 'extract' given invalid options" >> {
+      Fill.unapply(List("")) must_== None
+      Fill.unapply(List("B", "one", "2", "o")) must_== None
+      Fill.unapply(List("B", "1", "two", "o")) must_== None
+      Fill.unapply(List("B", "1", "2", "colour")) must_== None
+      Fill.unapply(List("x", "1", "2", "o")) must_== None
+      Fill.unapply(List("B", "1", "2", "o", "extra")) must_== None
+    }
+    "extracts parameters" >> {
+      Fill.unapply(List("B", "1", "2", "o")) must_== Some((1, 2, 'o'))
+    }
   }
 }

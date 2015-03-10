@@ -42,4 +42,19 @@ class LineTest extends Specification {
     (canvas.drawCharacter _).expects(*, *).never()
     Line(Coordinate(1, 4), Coordinate(1, 1)).applyTo(canvas)
   }
+  
+  "extractor" >> {
+    "wont 'extract' given invalid options" >> {
+      Line.unapply(List("")) must_== None
+      Line.unapply(List("L", "one", "2", "3", "4")) must_== None
+      Line.unapply(List("L", "1", "two", "3", "4")) must_== None
+      Line.unapply(List("L", "1", "2", "three", "4")) must_== None
+      Line.unapply(List("L", "1", "2", "3", "four")) must_== None
+      Line.unapply(List("x", "1", "2", "3", "4")) must_== None
+      Line.unapply(List("L", "1", "2", "3", "4", "extra")) must_== None
+    }
+    "extracts parameters" >> {
+      Line.unapply(List("L", "1", "2", "3", "4")) must_== Some((1, 2, 3, 4))
+    }
+  }
 }
