@@ -8,8 +8,6 @@ case class Tiles private(values: Map[Coordinate, Char]) {
     this(values.toMap)
   }
 
-  def filter(function: Coordinate => Boolean): Tiles = new Tiles(tiles.filterKeys(function))
-
   def -(coordinate: Coordinate) = Tiles(tiles - coordinate)
 
   def -(coordinates: Seq[Coordinate]) = Tiles(tiles.filterNot(t => coordinates.contains(t._1)))
