@@ -15,6 +15,9 @@ class CommandLineTest extends Specification {
       CommandLine.command("x 1 2 3 4") must beAnInstanceOf[DrawNothing]
       CommandLine.command("L 1 2 3 4 extra") must beAnInstanceOf[DrawNothing]
     }
+    "special case when the line that would be extract isn't actually valid (it's a diagonal for example" >> {
+      CommandLine.command("L 1 1 2 2") must beAnInstanceOf[DrawNothing]
+    }
     "extracts parameters" >> {
       CommandLine.command("L 2 1 2 3") must beAnInstanceOf[Line]
     }
