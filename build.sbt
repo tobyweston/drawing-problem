@@ -1,4 +1,4 @@
-name := "springer"
+name := "drawing"
 
 version := "1.0"
 
