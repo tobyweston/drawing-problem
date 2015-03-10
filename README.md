@@ -26,3 +26,17 @@ This lack of atomicity made me think about using a more immutable style canvas w
 Full disclosure: I don't have 100% test coverage. I don't think I need it. Some bits (notably the `CommandLine` class) are not tested with automated tests. This is partly because I wasn't test driving at this point (I'd already settled on a design) and partly because finer grained testing was done elsewhere. I'm happy to discuss in more depth.
 
 ![](coverage.png)
+
+## Hardware Integration
+
+For fun, I integrated the code to work with a Raspberry Pi fitted with an 8x8 LED matrix. Because the Pi requires `sudo` access to write to the GPIO pins, you have to run `sbt` with privileges to see the blinky lights. Follow these steps.
+
+    git checkout raspberry_pi
+    sudo sbt run
+
+
+Colour selection is as follows;
+
+* Borders are red
+* Lines and rectangles are blue
+* Bucket fill uses a colour code; `g` is green, `y` is yellow and so on. An unknown colour code defaults to magenta

@@ -1,6 +1,6 @@
 package com.springer.drawing
 
-case class Tiles private(values: Map[Coordinate, Char]) {
+case class Tiles private(values: Map[Coordinate, Char]) extends Traversable[(Coordinate, Char)] {
 
   private val tiles = values
 
@@ -16,4 +16,5 @@ case class Tiles private(values: Map[Coordinate, Char]) {
 
   def apply(coordinate: Coordinate) = tiles.apply(coordinate)
 
+  def foreach[U](f: ((Coordinate, Char)) => U) = tiles.foreach(f)
 }

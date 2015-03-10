@@ -9,7 +9,7 @@ object CommandLine extends App {
   while (true) {
     val drawable = command(StdIn.readLine("enter command: "))
     canvas = drawable.applyTo(canvas)
-    canvas.display(Console())
+    canvas.display(Console(), RaspberryPi())
   }
 
   def command(command: String): Drawable = {
@@ -23,7 +23,3 @@ object CommandLine extends App {
     }
   }
 }
-
-
-
-
