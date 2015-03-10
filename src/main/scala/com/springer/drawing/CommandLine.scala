@@ -14,12 +14,12 @@ object CommandLine extends App {
 
   def command(command: String): Drawable = {
     command.split(" ").toList match {
-      case NewCanvas(width, height)   => NewCanvas(width, height)
-      case Line(x1, y1, x2, y2)       => Line(Coordinate(x1, y1), Coordinate(x2, y2))
-      case Rectangle(x1, y1, x2, y2)  => Rectangle(Coordinate(x1, y1), Coordinate(x2, y2))
-      case Fill(x, y, colour)         => Fill(Coordinate(x, y), colour)
-      case "Q" :: Nil                 => Quit()
-      case _                          => DrawNothing()
+      case "C" :: Int(width) :: Int(height) :: Nil                => NewCanvas(width, height)
+      case "L" :: Int(x1) :: Int(y1) :: Int(x2) :: Int(y2) :: Nil => Line((x1, y1), (x2, y2))
+      case "R" :: Int(x1) :: Int(y1) :: Int(x2) :: Int(y2) :: Nil => Rectangle((x1, y1), (x2, y2))
+      case "B" :: Int(x) :: Int(y) :: Char(colour) :: Nil         => Fill((x, y), colour)
+      case "Q" :: Nil                                             => Quit()
+      case _                                                      => DrawNothing()
     }
   }
 }

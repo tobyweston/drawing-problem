@@ -24,20 +24,4 @@ class RectangleTest extends Specification {
     (canvas.drawCharacter _).expects(*, *).never()
     Rectangle(Coordinate(3, 3), Coordinate(1, 1)).applyTo(canvas)
   }
-
-  "extractor" >> {
-    "wont 'extract' given invalid options" >> {
-      Rectangle.unapply(List("")) must_== None
-      Rectangle.unapply(List("R", "one", "2", "3", "4")) must_== None
-      Rectangle.unapply(List("R", "1", "two", "3", "4")) must_== None
-      Rectangle.unapply(List("R", "1", "2", "three", "4")) must_== None
-      Rectangle.unapply(List("R", "1", "2", "3", "four")) must_== None
-      Rectangle.unapply(List("x", "1", "2", "3", "4")) must_== None
-      Rectangle.unapply(List("R", "1", "2", "3", "4", "extra")) must_== None
-    }
-    "extracts parameters" >> {
-      Rectangle.unapply(List("R", "1", "2", "3", "4")) must_== Some((1, 2, 3, 4))
-    }
-  }
-
 }
