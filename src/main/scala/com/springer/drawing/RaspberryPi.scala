@@ -13,6 +13,8 @@ object RaspberryPi {
       case '-' | '|' => red
       case 'x' => blue
       case 'g' => green
+      case 'y' => yellow
+      case 'o' => orange
       case ' ' => black
       case _ => magenta
     }
