@@ -32,7 +32,7 @@ Full disclosure: I don't have 100% test coverage. I don't think I need it. Some 
 For fun, I integrated the code to work with a Raspberry Pi fitted with an 8x8 LED matrix. Because the Pi requires `sudo` access to write to the GPIO pins, you have to run `sbt` with privileges to see the blinky lights. Follow these steps.
 
     git checkout raspberry_pi
-    sudo sbt -Djava.library.path=/path run
+    sudo sbt run
 
 
 Colour selection is as follows;
