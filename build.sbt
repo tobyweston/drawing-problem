@@ -15,7 +15,7 @@ outputStrategy := Some(StdoutOutput)
 libraryDependencies ++= Seq(
   "org.specs2" %% "specs2-core" % "3.0" % "test",
   "org.scalamock" %% "scalamock-specs2-support" % "3.2" % "test",
-  "bad.robot" % "unicorn-hat-java" % "1.0"
+  "bad.robot" % "unicorn-hat-java" % "1.1"
 )
 
 resolvers ++= Seq(

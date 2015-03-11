@@ -1,5 +1,7 @@
 package com.springer
 
+import java.util.function.Supplier
+
 package object drawing {
 
   object Int {
@@ -20,6 +22,10 @@ package object drawing {
       }
     }
     def isChar(value: String) = value.length == 1
+  }
+
+  implicit def functionToSupplier[T](f: => T): Supplier[T] = new Supplier[T] {
+    def get(): T = f
   }
 
 }

@@ -2,6 +2,7 @@ package com.springer.drawing
 
 import java.awt.Color._
 
+import bad.robot.unicorn.neopixel.PlatformSafeUnicorn._
 import bad.robot.unicorn.neopixel.ws2811.Ws2811Unicorn
 import com.springer.drawing.RaspberryPi.colourFrom
 
@@ -22,7 +23,7 @@ object RaspberryPi {
 }
 
 class RaspberryPi extends Display {
-  private val unicorn = new Ws2811Unicorn()
+  private val unicorn = createPlatformSafeUnicorn(new Ws2811Unicorn())
 
   unicorn.setBrightness(0.1)
   sys.addShutdownHook(unicorn.shutdown())

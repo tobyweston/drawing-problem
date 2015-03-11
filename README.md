@@ -34,6 +34,7 @@ For fun, I integrated the code to work with a Raspberry Pi fitted with an 8x8 LE
     git checkout raspberry_pi
     sudo sbt run
 
+If you're not already, you'll need to have `sbt` run with Java 8.
 
 Colour selection is as follows;
 
