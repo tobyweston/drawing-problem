@@ -40,3 +40,5 @@ Colour selection is as follows;
 * Borders are red
 * Lines and rectangles are blue
 * Bucket fill uses a colour code; `g` is green, `y` is yellow and so on. An unknown colour code defaults to magenta
+
+![](raspberry_pi.png)
