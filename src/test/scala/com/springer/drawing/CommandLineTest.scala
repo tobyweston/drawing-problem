@@ -1,6 +1,5 @@
 package com.springer.drawing
 
-import com.springer.drawing
 import org.specs2.mutable.Specification
 
 class CommandLineTest extends Specification {
