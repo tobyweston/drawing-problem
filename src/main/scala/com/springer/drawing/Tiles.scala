@@ -1,12 +1,8 @@
 package com.springer.drawing
 
-case class Tiles private(values: Map[Coordinate, Char]) {
+case class Tiles private(private val tiles: Map[Coordinate, Char]) {
 
-  private val tiles = values
-
-  def this(values: (Coordinate, Char)*) = {
-    this(values.toMap)
-  }
+  def this(values: (Coordinate, Char)*) = this(values.toMap)
 
   def -(coordinate: Coordinate) = Tiles(tiles - coordinate)
 
