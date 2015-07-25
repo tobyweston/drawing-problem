@@ -2,9 +2,6 @@ package com.springer.drawing
 
 object ArrayCanvas {
   def apply(width: Int, height: Int) = new ArrayCanvas(width + 2, height + 2)
-  def unapply(options: List[String]): Option[(Int, Int)] = {
-    None
-  }
 }
 
 class ArrayCanvas private(columns: Int, rows: Int) extends Canvas {
@@ -32,7 +29,7 @@ class ArrayCanvas private(columns: Int, rows: Int) extends Canvas {
     } yield {
       Coordinate(x, y) -> canvas(y)(x)
     }
-    new Tiles(tiles:_*)
+    new Tiles(tiles: _*)
   }
 
   override def bounds = RectangleBounds(Coordinate(1, 1), Coordinate(columns, rows))
