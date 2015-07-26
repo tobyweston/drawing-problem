@@ -42,3 +42,21 @@ Colour selection is as follows;
 * Bucket fill uses a colour code; `g` is green, `y` is yellow and so on. An unknown colour code defaults to magenta
 
 ![](raspberry_pi.png)
+
+
+## Memory Joggers
+
+Or, stuff I can't remember.
+
+* What's the `Tiles` class? Get a copy of the underlying canvas array without leak it's details, key it by the co-ordinate. Also gives an object to hang behaviour from for the bucket fill.
+* What are `Coordinates`? A collection of `Coordinates` (implemented as a var args).
+* The `Example` app follows the PDF's acceptance criteria, used to sense check as I was going.
+* The `Fill` class passes down a _mutable_ list to build up the coordinates `found` to need painting. It's `implicit`. If the checks don't fail, the _current_ is added to the list. The method then goes on the recur on co-ordinates above, right, below and left of the current co-ordinate. 
+* "already matched" in `Fill` means a co-ordinate has already been removed from the list of tiles; it has already been marked to paint.
+* "already filled" means, the co-ordinate to check is a border or line char.
+
+## Refactorings
+
+* The `Coordinate` `above` etc methods return tuples when they could return another `Coordinate` (and avoid the implicit conversion).
+* Remove unnecessary 'shadowing' of `val` (`tiles = values`). Not sure what I was thinking, maybe encapsulation? Could make it `private val` if you really want to hide it from clients, but clients can't really do anything with it, so why bother. 
+* Not sure why there's an `unapply` on `ArrayCanvas`. Delete it.
