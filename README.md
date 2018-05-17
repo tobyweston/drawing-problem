@@ -1,4 +1,4 @@
-# Springer Coding Exercise
+# Drawing Problem Coding Exercise
 
 Ensure you have `sbt` setup then run the following from the project root.
 
