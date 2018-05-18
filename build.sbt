@@ -1,12 +1,12 @@
-name := "springer"
+name := "drawing-program"
 
 version := "1.0"
 
-scalaVersion := "2.11.6"
+scalaVersion := "2.12.4"
 
 libraryDependencies ++= Seq(
-  "org.specs2" %% "specs2-core" % "3.0" % "test",
-  "org.scalamock" %% "scalamock-specs2-support" % "3.2" % "test"
+  "org.specs2" %% "specs2-core" % "3.9.5" % "test",
+  "org.scalamock" %% "scalamock-specs2-support" % "3.6.0" % "test"
 )
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
