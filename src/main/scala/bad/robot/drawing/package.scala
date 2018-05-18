@@ -3,7 +3,7 @@ package bad.robot
 package object drawing {
 
   object Int {
-    def unapply(options: String): Option[(Int)] = {
+    def unapply(options: String): Option[Int] = {
       options match {
         case number if isNumber(number) => Some(number.toInt)
         case _ => None
@@ -13,7 +13,7 @@ package object drawing {
   }
 
   object Char {
-    def unapply(options: String): Option[(Char)] = {
+    def unapply(options: String): Option[Char] = {
       options match {
         case string if isChar(string) => Some(string.charAt(0))
         case _ => None
